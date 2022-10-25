@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% block title %}Portfolio{% endblock %}
+{% load static %} {% block background %}{% static 'core/img/bombi.jpeg' %}{% endblock %}
+
+{% block header %}
+<h1 class="headers"></h1>
+<h2 class="headers"></h2>
+{% endblock %}
+
+{% block content %}
+{% load qr_code %}
+    <br>
+    <h2 class="titles">Portfolio</h2> <br><br>
+    <div class="codigoqr">
+        <h2>Generador de código qr</h2>
+        <div class="formqr">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name='data' id='data' placeholder="escribe la url">
+                <button class="botonqr" type="submit" value="Generar">Generar</button>
+                {{ qrcode_svg|safe }}
+            </form>
+            <div class="qrimg">
+                {% if img_name %}
+                <img src="{{img_name}}" alt="código qr" />
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <p class="p1"> Aquí ves una base de datos administrada en Django.</p>
+
+    {% for project in projects %}
+        <div class="rowproject">
+            <div class="projectimg">
+                <img class="imgprj" src="{{project.image.url}}" alt="">
+            </div>
+            <div class="contenedortt">
+                <div class="projecttitle">
+                    <h3 class="titleproject">{{project.title}}</h3>
+                </div>
+                <br>
+                <div class="projectdescription">
+                    <p class="descriptionprj">{{project.description}}</p>
+                    {% if project.link %}
+                     <p><br><a href="{{project.link}}" target="_blank">  --> Más Información</a></p>
+                    {% endif %}
+                </div>
+            </div>          
+        </div>     
+        Proyecto: {{project.title}} creado {{project.created}} <br>
+    {% endfor %}
+{% endblock %}

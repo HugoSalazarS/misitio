@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block title %}Acerca de{% endblock %}
+{% load static %} {% block background %}{% static 'core/img/astro4.jpeg' %}{% endblock %}
+{% block header %}
+<h1 class="headers"></h1>
+<h2 class="headers"></h2>
+{% endblock %}
+{% block content %}
+    <br>
+    <h2 class="titles">¡Me Presento!</h2>
+    <p class="p1"> ¡Hola! Soy Hugo y te quiero contar un poco sobre mi:<br>
+    Soy abogado, con una especialización en alta gerencia, un título de maestría 
+    en Historia y un título de maestría en Ciencia Política. <br>
+    Entonces te preguntaras ¿Qué hago programando? 
+    <br>
+    Te respondo con sinceridad:
+    <br>
+    
+            <span id="like"> <strong>
+            ¡ME GUSTA! </strong>
+            </span>
+    </p>
+    <div class="imagen"><img src="{% static 'core/img/astro3.jpeg' %}"/></div>
+{% endblock %}

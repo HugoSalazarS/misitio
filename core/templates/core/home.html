@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% block title %}Portada{% endblock %}
+{% load static %} {% block background %}{% static 'core/img/astro3.jpeg' %}{% endblock %}
+{% block header %}
+<h1 class="headers"></h1>
+{% endblock %}
+{% block content %}
+    <br>
+    <h2 class="titles">Bienvenido</h2><br>
+    <p class="p1">¡Gracias por llegar hasta aquí!<br>
+    Te presento una pequeña muestra de mi trabajo, he desarrollado este sitio en Django. Te invito a que pases por cada una de las secciones y conozcas un poco más de mi.<br>
+    </p>
+    <div class="imagen"><img src="{% static 'core/img/astro.jpeg' %}"/></div>
+{% endblock %}

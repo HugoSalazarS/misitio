@@ -1,0 +1,34 @@
+ 
+{% extends 'core/base.html' %}
+{% block title %}Contacto{% endblock %}
+{% load static %} {% block background %}{% static 'core/img/astro2.jpeg' %}{% endblock %}
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+    <br>
+    <h2 class="titles">Escríbeme</h2>
+    <div class="tablediv">    
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table class="tableform">
+                {% if 'ok' in request.GET %}
+            <p class="mensajeok">Su mensaje ha sido enviado correctamente</p>
+                {% endif %}
+                {{form.as_table}}
+            </table>
+            <button class="submitbt" type="submit" value="Enviar">ENVIAR</button>
+            
+        </form>
+        <div class="imgcontainer"><img class="imgcontact" src="{% load static %}{% static 'core/img/astro4.jpeg' %}"/></div>
+    </div>
+  
+        <p class="p1">  </p>
+    <ul class="contact">
+        <li><a href="mailto:hugo.salazar@utp.edu.co"><i class="fa-sharp fa-solid fa-at fa-3x fa-spin"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/hasalazars" target=_blank><i class="fa-brands fa-linkedin fa-3x fa-beat"></i></a></li>
+        <li><a href='https://github.com/HugoSalazarS' target=_blank><i class="fa-brands fa-github fa-3x fa-flip"></i></a></li>
+        <li><a href="https://wa.me/573162476859" target=_blank><i class="fa-brands fa-whatsapp fa-3x fa-fade"></i></a></li>
+    </ul>
+{% endblock %}
